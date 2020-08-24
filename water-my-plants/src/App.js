@@ -9,7 +9,7 @@ import Dashboard from './components/Dashboard'
 import './App.css';
 import PrivateRoute from './utils/PrivateRoute';
 import * as yup from 'yup'
-import formSchema from './validation/formSchema'
+import formSchemaLogin from './validation/formSchemaLogIn'
 import { axiosWithAuth } from './utils/axiosWithAuth';
 import axios from 'axios'
 
@@ -51,10 +51,8 @@ function App() {
   }
     
   const submit = () => {
-    // collect info and send post request for sign up and get request for sign ins
     const newUser = {
       username: userValues.username.trim(),
-      email: userValues.email.trim(),
       password: userValues.password.trim(),
     }
     getUser(newUser)
@@ -62,7 +60,7 @@ function App() {
 
   const inputChange = (name, value) => {
     yup
-      .reach(formSchema, name)
+      .reach(formSchemaLogin, name)
       .validate(value)
       .then(valid => {
         setFormErrors ({
@@ -88,7 +86,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    formSchema.isValid(userValues)
+    formSchemaLogin.isValid(userValues)
       .then(valid => {
         setDisabled(!valid);
       })
