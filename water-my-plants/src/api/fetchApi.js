@@ -1,9 +1,9 @@
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
-export function fetchApi() {
-    return axiosWithAuth().get('enter endpoint here')
+export function fetchPlantsApi() {
+    return axiosWithAuth().get('/plants/plants')
     .then(res => {
-        // console.log(res)
+        console.log(res)
         return res.data
     })
     .catch(err => {
