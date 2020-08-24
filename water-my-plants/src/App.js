@@ -101,16 +101,17 @@ function App() {
         <Nav />
         <Switch>
           {/* Login component goes here */}
-          <Login 
-          submit={submit}
-          inputChange={inputChange}
-          values={userValues}
-          disabled={disabled}
-          errors={formErrors}
-          />
 
           <Route exact path="/" component={Register} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login"> 
+            <Login 
+            submit={submit}
+            inputChange={inputChange}
+            values={userValues}
+            disabled={disabled}
+            errors={formErrors}
+            />
+          </Route>
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
         </Switch>
       </div>
