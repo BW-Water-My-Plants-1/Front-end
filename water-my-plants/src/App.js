@@ -15,20 +15,14 @@ import axios from 'axios'
 
 const initialUserValues = {
   username: '',
+  password: '', 
   email: '', 
-  phone: '', 
-  plants: {
-    plant1: false, 
-    plant2: false, 
-    plant3: false, 
-  }
 }
 
 const initialFormErrors = {
   username: '',
   email: '',
   phone: '',
-  plants: '',
 }
 
 const initialDisabled = true;
@@ -40,7 +34,13 @@ function App() {
   const [disabled, setDisabled] = useState(initialDisabled)
 
   const getUser = () => {
-    axios.get('https://reqres.in/api/users')
+    axios.post('http://watermyplants-dg0511.herokuapp.com/login', `grant_type=password&username=${userValues.username}&password=${userValues.password}`, {
+      headers: {
+        // btoa is converting our client id/client secret into base64
+        Authorization: `Basic ${btoa('XXXXXXX:XXXXXXXX')}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
       .then(res => {
         debugger
         setUsers([...users, res.data])  
