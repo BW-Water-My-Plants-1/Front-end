@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
+import {useHistory} from 'react-router-dom'
 
 const initialValue = {
     credentials: {
@@ -12,6 +13,7 @@ const initialValue = {
 
 const Register = () => {
     const [state, setState] = useState(initialValue)
+    const history = useHistory()
 
     const handleChange = (e) => {
         setState({
@@ -25,18 +27,21 @@ const Register = () => {
     const register = (e) => {
         e.preventDefault();
         axiosWithAuth()
-            .post("/register", state.credentials)
+            .post("/login", state.credentials)
             .then(res => {
                 console.log(res)
+                localStorage.setItem("token", res.data.payload)
+                history.push("/dashboard")
             })
             .catch(err => {
                 console.log(err)
             })
+        setState(initialValue)
     }
     return (
         <div className="container-wrapper">
             <h1>Welcome to Water My Plants</h1>
-            <form >
+            <form onSubmit={register}>
                 <label>
                     Username: 
                     <input
@@ -49,9 +54,9 @@ const Register = () => {
                 <label>
                     Email: 
                     <input
-                        type="text"
+                        type="email"
                         name="email"
-                        value={state.credentials.username}
+                        value={state.credentials.email}
                         onChange={handleChange}
                     />
                 </label>
@@ -60,10 +65,11 @@ const Register = () => {
                     <input
                         type="password"
                         name="password"
-                        value={state.credentials.username}
+                        value={state.credentials.password}
                         onChange={handleChange}
                     />
                 </label>
+                <button>Sign Up</button>
             </form>
 
         </div>
