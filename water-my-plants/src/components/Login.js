@@ -5,35 +5,36 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid pink;
-    height: 100vh;
+    height: 80vh;
 `
 
 const LoginDiv = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: white;
     height: 50vh;
     width: 25vw;
-    border: 1px solid pink;
+    border-radius: 10%;
 `
 
 const StyledH2 = styled.h2`
-    font-size: 2.5rem;
+    font-size: 2rem;
     padding: 2%;
     margin: 10% auto;
+    width: 80%;
 `
 
 const StyledInput = styled.input`
     padding: 2%;
-    width: 100%;
+    width: 80%;
 `
 
 const StyledSubmit = styled.button`
     padding: 1%;
     margin: 5%;
-    width: 50%;
+    width: 40%;
 `
 
 const ButtonDiv = styled.div`
@@ -59,7 +60,6 @@ const Login = ({inputChange, submit, values, disabled, errors}) => {
             <form className='form container' onSubmit={onSubmit}>
                 
                 <LoginDiv>
-                <div className='login container'>
                 <div className='errors'>
                 <div>{errors.username}</div>
                 <div>{errors.email}</div>
@@ -86,9 +86,7 @@ const Login = ({inputChange, submit, values, disabled, errors}) => {
                 
                 <ButtonDiv>
                 <StyledSubmit disabled={disabled}>Login</StyledSubmit>
-                <StyledSubmit disabled={disabled}>Forgot Username or Password?</StyledSubmit>
                 </ButtonDiv>
-                </div>
                 </LoginDiv>
             </form>
         </StyledDiv>
