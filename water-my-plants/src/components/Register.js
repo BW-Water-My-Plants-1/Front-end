@@ -40,39 +40,48 @@ const Register = () => {
     }
     return (
         <div className="container-wrapper">
-            <h1>Welcome to Water My Plants</h1>
-            <form onSubmit={register}>
-                <label>
+            <div className="image-container">
+                <h1 className="signUp-header">Welcome to Water My Plants</h1>
+            </div>
+            <div className="form-container">
+            <form className="form" onSubmit={register}>
+                <label className="form-label">
                     Username: 
                     <input
+                        className="input-field"
+                        placeholder="Enter user name"
                         type="text"
                         name="username"
                         value={state.credentials.username}
                         onChange={handleChange}
-                    />
+                        />
                 </label>
-                <label>
+                <label className="form-label">
                     Email: 
                     <input
+                        className="input-field"
+                        placeholder="Enter email address"
                         type="email"
                         name="email"
                         value={state.credentials.email}
                         onChange={handleChange}
-                    />
+                        />
                 </label>
-                <label>
+                <label className="form-label">
                     Password: 
                     <input
+                        className="input-field"
+                        placeholder="Enter password"
                         type="password"
                         name="password"
                         value={state.credentials.password}
                         onChange={handleChange}
-                    />
+                        />
                 </label>
-                <button>Sign Up</button>
+                <button className="button">Create Account</button>
             </form>
-
         </div>
+    </div>
     )
 }
 

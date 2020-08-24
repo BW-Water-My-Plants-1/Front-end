@@ -54,4 +54,79 @@ h4{
   color: #41A95E;
 }
 
+.container-wrapper {
+  /* border: 1px solid red; */
+  width: 80%;
+  margin: 5% auto;
+  height: 70vh;
+  display: flex;
+  
+}
+
+.image-container {
+  border-radius: 2% 0 0 2%;
+  width: 50%;
+  background-image: url("https://images.unsplash.com/photo-1508014072511-d698c0823383?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.signUp-header {
+  text-align: center;
+  padding: 5%;
+  font-size: 2.4rem;
+  color: #41A95E
+}
+
+.form-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid #41A95E;
+  border-right: 2px solid #41A95E;
+  border-bottom: 2px solid #41A95E;
+  border-radius: 0 2% 2% 0;
+}
+
+.form {
+  /* border: 1px solid red; */
+  width: 90%;
+  margin: 0 auto;
+  /* height: 50vh; */
+}
+
+.form-label {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  /* padding: 4% 0; */
+  color: white;
+  height: 15vh;
+}
+
+.input-field {
+  /* padding: 2% 0; */
+  height: 5vh;
+  border-radius: 5p;
+}
+
+.button {
+  width: 100%;
+  height: 48px;
+border: none;
+background-color: #41A95E;
+font-size: 1.2rem;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 5px;
+}
+
+
+
 
