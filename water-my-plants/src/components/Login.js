@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Register from './Register'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router'
 
+// styling 
 const StyledDiv = styled.div`
     display: flex;
     justify-content: center;
@@ -43,12 +45,15 @@ const ButtonDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid pink;
     width: 50%;
     text-align: center;
 `
+// end of styling 
+
 
 const Login = ({inputChange, submit, values, disabled, errors}) => {
+
+    const history = useHistory();
     
     const onInputChange = evt => {
         const { name, value } = evt.target;
@@ -58,6 +63,7 @@ const Login = ({inputChange, submit, values, disabled, errors}) => {
     const onSubmit = evt => {
         evt.preventDefault();
         submit();
+        history.push("/dashboard");
     }
 
     return (
@@ -91,7 +97,7 @@ const Login = ({inputChange, submit, values, disabled, errors}) => {
                 
                 <ButtonDiv>
                 <StyledSubmit disabled={disabled}>Login</StyledSubmit>
-                <a href="">New? Register here</a>
+                <Link to="/register" >New? Register here</Link>
                 </ButtonDiv>
                 </LoginDiv>
             </form>
