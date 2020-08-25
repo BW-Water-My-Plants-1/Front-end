@@ -12,16 +12,17 @@ body{
 
 .navigation{
   /* border: 1px solid red; */
-  height: 100px;
-  background-color: #2C2D31;
+  height: 70px;
+  background-color: #41A95E;
   display: flex;
   justify-content: space-between;
-  border-bottom: 10px solid #41A95E;
+  align-items: center;
+  /* border-bottom: 10px solid #41A95E; */
 }
 
 .header-logo{
   /* border: 1px solid red; */
-  width: 20%;
+  /* width: 20%; */
   padding-left: 2%;
   display: flex;
   align-items: center;
@@ -33,19 +34,20 @@ h4{
 }
 
 .links{
-  display: flex;
-  width: 30%;
-  justify-content: space-around;
-  align-items: center;
+  border: 1px solid red;
+  /* width: 20%; */
+  /* padding: 1% 0; */
+  text-align: center;
+  font-size: 1.2rem;
+  color: #f1f1f1;
 }
 
 .nav-links{
-  color: #f1f1f1;
   text-decoration: none;
-  text-align: center;
-  padding: 2% 3%;
+  /* text-align: center; */
+  padding: 2%;
   width: 20%;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
 }
 
 .nav-links:hover {
@@ -77,12 +79,13 @@ h4{
   text-align: center;
   padding: 5%;
   font-size: 2.4rem;
-  color: #41A95E
+  color: #3E4045;
 }
 
 .form-container {
   width: 50%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-top: 2px solid #41A95E;
@@ -109,7 +112,7 @@ h4{
 }
 
 .input-field {
-  /* padding: 2% 0; */
+  padding-left: 2%;
   height: 5vh;
   border-radius: 5p;
 }
@@ -117,14 +120,24 @@ h4{
 .button {
   width: 100%;
   height: 48px;
-border: none;
-background-color: #41A95E;
-font-size: 1.2rem;
-color: white;
-display: flex;
-justify-content: center;
-align-items: center;
-border-radius: 5px;
+  border: none;
+  background-color: #41A95E;
+  font-size: 1.2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.link-to-sign {
+  padding: 2%;
+  color: white;
+}
+
+span {
+  color: #41A95E;
+  cursor: pointer;
 }
 
 

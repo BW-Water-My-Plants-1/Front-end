@@ -5,7 +5,6 @@ import {useHistory} from 'react-router-dom'
 const initialValue = {
     credentials: {
         username: "",
-        email: "",
         password: ""
     }
 }
@@ -27,7 +26,13 @@ const Register = () => {
     const register = (e) => {
         e.preventDefault();
         axiosWithAuth()
-            .post("/login", state.credentials)
+        .post('http://watermyplants-dg0511.herokuapp.com/login', `grant_type=password&username=${state.credentials.username}&password=${state.credentials.password}`, {
+      headers: {
+        // btoa is converting our client id/client secret into base64
+        Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }})
+            // .post("/login", state.credentials)
             .then(res => {
                 console.log(res)
                 localStorage.setItem("token", res.data.payload)
@@ -38,6 +43,11 @@ const Register = () => {
             })
         setState(initialValue)
     }
+
+    const routeToSignIn = () => {
+        history.push('/login')
+      }
+
     return (
         <div className="container-wrapper">
             <div className="image-container">
@@ -56,7 +66,7 @@ const Register = () => {
                         onChange={handleChange}
                         />
                 </label>
-                <label className="form-label">
+                {/* <label className="form-label">
                     Email: 
                     <input
                         className="input-field"
@@ -66,7 +76,7 @@ const Register = () => {
                         value={state.credentials.email}
                         onChange={handleChange}
                         />
-                </label>
+                </label> */}
                 <label className="form-label">
                     Password: 
                     <input
@@ -80,6 +90,7 @@ const Register = () => {
                 </label>
                 <button className="button">Create Account</button>
             </form>
+            <p className="link-to-sign" >Already have an account? <span onClick={routeToSignIn} >Sign in</span> here</p>
         </div>
     </div>
     )
