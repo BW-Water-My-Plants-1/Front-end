@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Register from './Register'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 const StyledDiv = styled.div`
     display: flex;
@@ -33,14 +35,17 @@ const StyledInput = styled.input`
 
 const StyledSubmit = styled.button`
     padding: 1%;
-    margin: 5%;
-    width: 40%;
+    margin: 5% auto;
+    width: 60%;
 `
 
 const ButtonDiv = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    width: 100%;
+    border: 1px solid pink;
+    width: 50%;
+    text-align: center;
 `
 
 const Login = ({inputChange, submit, values, disabled, errors}) => {
@@ -86,6 +91,7 @@ const Login = ({inputChange, submit, values, disabled, errors}) => {
                 
                 <ButtonDiv>
                 <StyledSubmit disabled={disabled}>Login</StyledSubmit>
+                <a href="">New? Register here</a>
                 </ButtonDiv>
                 </LoginDiv>
             </form>
