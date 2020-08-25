@@ -1,3 +1,8 @@
+import { FETCH_USER_PLANT_LIST,
+    FETCH_USER_PLANT_LIST_SUCCESS,
+    FETCH_USER_PLANT_LIST_ERROR    
+} from '../actions/plantListActions'
+
 const initialState = {
     
 }
