@@ -12,16 +12,17 @@ body{
 
 .navigation{
   /* border: 1px solid red; */
-  height: 100px;
-  background-color: #2C2D31;
+  height: 70px;
+  background-color: #41A95E;
   display: flex;
   justify-content: space-between;
-  border-bottom: 10px solid #41A95E;
+  align-items: center;
+  /* border-bottom: 10px solid #41A95E; */
 }
 
 .header-logo{
   /* border: 1px solid red; */
-  width: 20%;
+  /* width: 20%; */
   padding-left: 2%;
   display: flex;
   align-items: center;
@@ -33,19 +34,20 @@ h4{
 }
 
 .links{
-  display: flex;
-  width: 30%;
-  justify-content: space-around;
-  align-items: center;
+  border: 1px solid red;
+  /* width: 20%; */
+  /* padding: 1% 0; */
+  text-align: center;
+  font-size: 1.2rem;
+  color: #f1f1f1;
 }
 
 .nav-links{
-  color: #f1f1f1;
   text-decoration: none;
-  text-align: center;
-  padding: 2% 3%;
+  /* text-align: center; */
+  padding: 2%;
   width: 20%;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
 }
 
 .nav-links:hover {
@@ -53,5 +55,91 @@ h4{
   border-radius: 4px;
   color: #41A95E;
 }
+
+.container-wrapper {
+  /* border: 1px solid red; */
+  width: 80%;
+  margin: 5% auto;
+  height: 70vh;
+  display: flex;
+  
+}
+
+.image-container {
+  border-radius: 2% 0 0 2%;
+  width: 50%;
+  background-image: url("https://images.unsplash.com/photo-1508014072511-d698c0823383?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.signUp-header {
+  text-align: center;
+  padding: 5%;
+  font-size: 2.4rem;
+  color: #3E4045;
+}
+
+.form-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid #41A95E;
+  border-right: 2px solid #41A95E;
+  border-bottom: 2px solid #41A95E;
+  border-radius: 0 2% 2% 0;
+}
+
+.form {
+  /* border: 1px solid red; */
+  width: 90%;
+  margin: 0 auto;
+  /* height: 50vh; */
+}
+
+.form-label {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  /* padding: 4% 0; */
+  color: white;
+  height: 15vh;
+}
+
+.input-field {
+  padding-left: 2%;
+  height: 5vh;
+  border-radius: 5p;
+}
+
+.button {
+  width: 100%;
+  height: 48px;
+  border: none;
+  background-color: #41A95E;
+  font-size: 1.2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.link-to-sign {
+  padding: 2%;
+  color: white;
+}
+
+span {
+  color: #41A95E;
+  cursor: pointer;
+}
+
+
 
 
