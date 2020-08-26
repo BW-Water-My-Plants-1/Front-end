@@ -28,7 +28,7 @@ const Register = () => {
     const register = (e) => {
         e.preventDefault();
         axios
-        .post('http://watermyplants-dg0511.herokuapp.com/createnewuser', state.credentials
+        .post('https://watermyplants-dg0511.herokuapp.com/createnewuser', state.credentials
     //     , {
     //   headers: {
     //     // btoa is converting our client id/client secret into base64
@@ -38,9 +38,9 @@ const Register = () => {
       )
             // .post("/login", state.credentials)
             .then(res => {
-                console.log(res)
-                localStorage.setItem("token", res.data.data)
-                history.push("/dashboard")
+                // console.log(res)
+                localStorage.setItem("token", res.data.access_token)
+                history.push("/login")
             })
             .catch(err => {
                 console.log(err)

@@ -34,19 +34,20 @@ function App() {
   const [disabled, setDisabled] = useState(initialDisabled)
 
   const getUser = () => {
-    axios.post('http://watermyplants-dg0511.herokuapp.com/login', `grant_type=password&username=${userValues.username}&password=${userValues.password}`, {
+    axios.post('https://watermyplants-dg0511.herokuapp.com/login', `grant_type=password&username=${userValues.username}&password=${userValues.password}`, {
       headers: {
         // btoa is converting our client id/client secret into base64
-        Authorization: `Basic ${btoa('XXXXXXX:XXXXXXXX')}`,
+        Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
       .then(res => {
-        debugger
+        console.log(res)
+        localStorage.setItem('token', res.data.access_token)
         setUsers([...users, res.data])  
       })
       .catch(err => {
-        debugger
+
       })    
   }
     

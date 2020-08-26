@@ -4,7 +4,12 @@ import { FETCH_USER_PLANT_LIST,
 } from '../actions/plantListActions'
 
 const initialState = {
-    plantList: [],
+    plants: [{
+        nickName: '',
+        species: '',
+        frequency: ''
+        }
+    ],
     noPlants: false,
     error: ''
 
@@ -21,7 +26,7 @@ export function addPlantReducer(state = initialState, action) {
             return {
                 ...state,
                 noPlants: false,
-                plantList: action.payload
+                plants: action.payload
             }
         case FETCH_USER_PLANT_LIST_ERROR: 
             return {
