@@ -12,8 +12,9 @@ export const plantListActions = () => (dispatch) => {
     axiosWithAuth()
         .get(`plants/myplants`) 
         .then(res => {
+            console.log(res)
             dispatch({ type: FETCH_USER_PLANT_LIST_SUCCESS, payload: res.data })
-            dispatch({})
+        
         })
         .catch(err => {
             dispatch({ type: FETCH_USER_PLANT_LIST_ERROR, payload: err.message})
