@@ -10,6 +10,8 @@ const StyledDiv = styled.div`
     justify-content: center;
     align-items: center;
     height: 80vh;
+    width: 80vw;
+    margin: 0 auto;
 `
 
 const LoginDiv = styled.div`
@@ -97,7 +99,7 @@ const Login = ({inputChange, submit, values, disabled, errors}) => {
                 
                 <ButtonDiv>
                 <StyledSubmit disabled={disabled}>Login</StyledSubmit>
-                <Link to="/register" >New? Register here</Link>
+                <Link to="/" >New? Register here</Link>
                 </ButtonDiv>
                 </LoginDiv>
             </form>
