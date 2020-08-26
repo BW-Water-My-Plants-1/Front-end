@@ -32,6 +32,7 @@ function App() {
   const [userValues, setUserValues] = useState(initialUserValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled)
+  const [funFact, setFunFact] = useState([''])
 
   const getUser = () => {
     axios.post('http://watermyplants-dg0511.herokuapp.com/login', `grant_type=password&username=${userValues.username}&password=${userValues.password}`, {
@@ -49,7 +50,9 @@ function App() {
         debugger
       })    
   }
-    
+  
+
+
   const submit = () => {
     const newUser = {
       username: userValues.username.trim(),
