@@ -28,7 +28,7 @@ function AddPlant(props) {
     const handleSubmit = e => {
         e.preventDefault()
         axiosWithAuth()
-            .post(`/plants/myplants/add`, {...form})
+            .post(`plants/myplants/add`, {...form})
             .then(res => {
                 // console.log(res)
                 setPlantList([...plantList, res])

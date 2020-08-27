@@ -1,22 +1,30 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link, Route, useHistory } from 'react-router-dom'
 import PlantCard from './PlantCard'
+import EditPlants from './EditPlants'
 
 
 
 function PlantList({ plantList }) {
+    const history = useHistory()
  
     // console.log(plantList)
     return (
         <div className="dashboard" >
            {plantList.map(plant => (
-               <Link key={plant.plantid} to={`/plant/${plant.plantid}`} >
+               <div className="link-card" key={plant.plantid} onClick={() => history.push( `/dashboard/plant/${plant.plantid}`)}  >
                     <PlantCard
-                    plant={plant}
+                    plantid={plant.plantid}
                 />
-               </Link>
+                {/* <Link to={`/dashboard/plant/${plant.plantid}/edit`} className="plant-button">
+                    <EditPlants />
+                </Link > */}
+                {/* <Route path="/dashboard/plant/:plantid/edit">
+                    <EditPlants />
+                </Route> */}
+               </div>
                 ))} 
+               
         </div>
     )
 }

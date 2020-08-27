@@ -220,15 +220,22 @@ span {
 
 .plant-card {
   /* border: 1px solid red; */
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 35vh;
+  /* margin: 5% 0; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: flex-start; */
+  /* flex-direction: column; */
+  /* height: 35vh; */
   /* width: 20%; */
-  overflow-x: hidden;
-  overflow-y: scroll;
+  /* overflow-x: hidden;
+  overflow-y: scroll; */
   padding: 5%;
-  background-color: #3E4045;
+  /* background-color: #3E4045; */
+}
+
+.link-card {
+  /* border: 1px solid red; */
+  text-decoration: none;
 }
 
 .plant-name {

@@ -99,9 +99,8 @@ function App() {
         {/* <Navigation /> */}
         <Switch>
           {/* Login component goes here */}
-
-          <Route exact path="/" component={Register} />
-
+          
+          <PrivateRoute path="/dashboard" component={Dashboard} />
           <Route exact path="/login"> 
             <Login 
             submit={submit}
@@ -111,7 +110,9 @@ function App() {
             errors={formErrors}
             />
           </Route>
-          <PrivateRoute path="/dashboard" component={Dashboard} />
+
+          <Route exact path="/" component={Register} />
+
         </Switch>
       </div>
     </Router>
