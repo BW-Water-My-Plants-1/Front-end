@@ -94,6 +94,16 @@ h4{
   border-radius: 0 2% 2% 0;
 }
 
+.modal {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  width: 50vw;
+  height: 50vh;
+  
+
+}
+
 .form {
   /* border: 1px solid red; */
   width: 90%;
