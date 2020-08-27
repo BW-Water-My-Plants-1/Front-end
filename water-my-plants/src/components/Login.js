@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Register from './Register'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
+import {motion} from 'framer-motion'
 
 // styling 
 const StyledDiv = styled.div`
@@ -10,14 +11,18 @@ const StyledDiv = styled.div`
     justify-content: center;
     align-items: center;
     height: 80vh;
+    width: 80vw;
+    margin: 0 auto;
 `
 
 const LoginDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
     justify-content: center;
     background-color: white;
+    border: 4px solid #41a95e;
     height: 50vh;
     width: 25vw;
     border-radius: 10%;
@@ -96,9 +101,17 @@ const Login = ({inputChange, submit, values, disabled, errors}) => {
                 />
                 
                 <ButtonDiv>
-                <StyledSubmit disabled={disabled}>Login</StyledSubmit>
-                <Link to="/register" >New? Register here</Link>
+                <motion.div
+                whileTap={{
+                  scale: 0.8,
+                  rotate: -90,
+                  borderRadius: "100%"
+                }}  
+                >
+                    <StyledSubmit disabled={disabled}>Login</StyledSubmit>
+                </motion.div>
                 </ButtonDiv>
+                <Link to="/" style={{textDecoration: 'none', color: '#41a95e'}}>New? Register here</Link>
                 </LoginDiv>
             </form>
         </StyledDiv>

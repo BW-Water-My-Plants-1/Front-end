@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
 import Register from './components/Register'
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
-// import Navigation from './components/Navigation'
-
 import './App.css';
 import PrivateRoute from './utils/PrivateRoute';
 import * as yup from 'yup'
@@ -32,7 +29,7 @@ function App() {
   const [userValues, setUserValues] = useState(initialUserValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled)
-
+  const [funFact, setFunFact] = useState([''])
   const getUser = () => {
     axios.post('https://watermyplants-dg0511.herokuapp.com/login', `grant_type=password&username=${userValues.username}&password=${userValues.password}`, {
       headers: {
