@@ -50,16 +50,19 @@ const Dashboard = (props) => {
             <Navigation />
             <div className="user-container">
                 <h2>Greetings, {userInfo}</h2>
-                <button className="add-plants-button" onClick={() => history.push("/dashboard/add-plant")} >Add Plants</button>
+                <button className="add-plants-button" onClick={() => history.push("/dashboard/add-plant")}>Add Plants</button>
             </div>
+            {props.plants.length === 0 && <NoPlants />}
             <Switch>
-            <Route path="/plant/:id" >
-                    <PlantCard/>
+                <Route path="/dashboard/plant/:plantid/edit">
+                    <EditPlants plants={plantList} setPlantList={setPlantList} />
+                </Route>
+                <Route path="/dashboard/plant/:plantid" >
+                    <PlantCard />
                 </Route>
                 <Route path="/dashboard/add-plant" >
                     <AddPlant plantList={plantList} setPlantList={setPlantList} />
                 </Route>
-            {props.plants.length === 0 && <NoPlants />}
                 <Route exact path="/dashboard" >
                     <PlantList plantList={plantList}/>    
                 </Route>

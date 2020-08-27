@@ -8,14 +8,15 @@ const initialValue = {
     frequency: ''
 }
 
-function EditPlants(props) {
+function EditPlants({plants, setPlantList}) {
+    // console.log(plants)
     const [editPlant, setEditPlant] = useState(initialValue) 
     const { plantid } = useParams()
     const history = useHistory()
 
     useEffect(() => {
         axiosWithAuth()
-        .get(`/plant/${plantid}`)
+        .get(`/plants/plant/${plantid}`)
         .then(res => {
             console.log(res)
             setEditPlant(res.data)
@@ -37,9 +38,18 @@ function EditPlants(props) {
     const handleSubmit = e => {
         e.preventDefault()
         axiosWithAuth()
-            .put(`/plants/plant/${editPlant.plantid}`, editPlant)
+            .patch(`plants/plant/${editPlant.plantid}`, editPlant)
             .then(res => {
-                console.log(res)
+                // console.log(res)
+                setEditPlant(plants.map(plant => {
+                    if(plant.plantid === res.data.plantid) {
+                        return res.data
+                    } else {
+                        return plant
+                    }
+                }))
+                setPlantList(editPlant)
+                history.push(`/dashboard/plant/${plantid}`)
             })
             .catch(err => {
                 console.log(err)
