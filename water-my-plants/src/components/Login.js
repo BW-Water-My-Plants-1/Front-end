@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Register from './Register'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
+import FunFact from './FunFact'
+import { motion } from 'framer-motion'
 
 // styling 
 const StyledDiv = styled.div`
@@ -52,8 +54,7 @@ const ButtonDiv = styled.div`
 `
 // end of styling 
 
-
-const Login = ({inputChange, submit, values, disabled, errors}) => {
+const Login = ({inputChange, submit, values, disabled, errors, randomFunFact}) => {
 
     const history = useHistory();
     
@@ -98,8 +99,22 @@ const Login = ({inputChange, submit, values, disabled, errors}) => {
                 />
                 
                 <ButtonDiv>
-                <StyledSubmit disabled={disabled}>Login</StyledSubmit>
+                <motion.div
+                whileTap={{
+                  scale: 0.8,
+                  rotate: -90,
+                  borderRadius: "100%"
+                }}  
+                >
+                    <StyledSubmit disabled={disabled}>Login</StyledSubmit>
+                </motion.div>
                 <Link to="/" >New? Register here</Link>
+                </ButtonDiv>
+
+                <ButtonDiv>
+                    <FunFact
+                    randomFunFact = {randomFunFact}
+                    />
                 </ButtonDiv>
                 </LoginDiv>
             </form>
@@ -107,4 +122,4 @@ const Login = ({inputChange, submit, values, disabled, errors}) => {
     )
 }
 
-export default Login
+export default Login 

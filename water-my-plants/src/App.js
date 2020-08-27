@@ -32,7 +32,7 @@ function App() {
   const [userValues, setUserValues] = useState(initialUserValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled)
-  const [funFact, setFunFact] = useState([''])
+  const [funFact, setFunFact] = useState(['Towser "The Mouser" of Glenturret Distillery in Crieff, Scotland, holds the Guinness World Record for the most mice caught (28,899).'])
 
   const getUser = () => {
     axios.post('http://watermyplants-dg0511.herokuapp.com/login', `grant_type=password&username=${userValues.username}&password=${userValues.password}`, {
@@ -51,6 +51,12 @@ function App() {
       })    
   }
   
+  const randomFunFact = (arr, random) => {
+    console.log(arr[random].text)
+    setFunFact(String(arr[random].text))
+    debugger
+    alert(funFact)
+}
 
 
   const submit = () => {
@@ -111,6 +117,7 @@ function App() {
             values={userValues}
             disabled={disabled}
             errors={formErrors}
+            randomFunFact = {randomFunFact}    
             />
           </Route>
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
