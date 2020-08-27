@@ -28,15 +28,8 @@ const Register = () => {
     const register = (e) => {
         e.preventDefault();
         axios
-        .post('https://watermyplants-dg0511.herokuapp.com/createnewuser', state.credentials
-    //     , {
-    //   headers: {
-    //     // btoa is converting our client id/client secret into base64
-    //     Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
-    //     'Content-Type': 'application/x-www-form-urlencoded'
-    //   }}
-      )
-            // .post("/login", state.credentials)
+        .post('https://watermyplants-dg0511.herokuapp.com/createnewuser', state.credentials)
+            
             .then(res => {
                 // console.log(res)
                 localStorage.setItem("token", res.data.access_token)

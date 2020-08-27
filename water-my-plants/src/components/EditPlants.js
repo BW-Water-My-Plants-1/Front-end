@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import {fetchPlantsApi} from '../api/fetchApi'
-import {useHistory} from 'react-router-dom'
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { useParams, useHistory } from 'react-router-dom'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 const initialValue = {
     nickname: '',
@@ -9,68 +8,62 @@ const initialValue = {
     frequency: ''
 }
 
-function AddPlant(props) {
-    const { plantList, setPlantList } = props;
-    const [form, setForm] = useState(initialValue)
+function EditPlants(props) {
+    const [editPlant, setEditPlant] = useState(initialValue) 
+    const { plantid } = useParams()
     const history = useHistory()
 
     useEffect(() => {
-        fetchPlantsApi()
+        axiosWithAuth()
+        .get(`/plant/${plantid}`)
         .then(res => {
-            // console.log(res)
-            setPlantList(res)
+            console.log(res)
+            setEditPlant(res.data)
         })
         .catch(err => {
             console.log(err)
         })
-    },[])
+    }, [plantid])
+
+    const handleChange = e => {
+        e.persist()
+        let value = e.target.value;
+        setEditPlant({
+            ...editPlant,
+            [e.target.name]: value
+        })
+    }
 
     const handleSubmit = e => {
         e.preventDefault()
         axiosWithAuth()
-            .post(`/plants/myplants/add`, {...form})
+            .put(`/plants/plant/${editPlant.plantid}`, editPlant)
             .then(res => {
-                // console.log(res)
-                setPlantList([...plantList, res])
-                setForm(initialValue)
-                history.push('/dashboard')
+                console.log(res)
             })
             .catch(err => {
                 console.log(err)
             })
     }
 
-    const handleChange = e => {
-        e.persist()
-        let value = e.target.value;
-        setForm({
-            ...form,
-            [e.target.name]: value
-        })
-        // console.log(form)
-    }
-
     return (
         <div>
-            <h2>Add a plant</h2>
             <form onSubmit={handleSubmit}>
                 <label>
                     Plant Name: 
                     <input 
-                    placeholder="Enter your plants name"
                     type="text"
                     name="nickname"
-                    value={form.nickname}
+                    value={editPlant.nickname}
                     onChange={handleChange}
                     />
                 </label>
                 <label>
                     Species: 
                     <input 
-                    placeholder="Enter plant specie"
                     type="text"
                     name="species"
-                    value={form.species}
+                    value={editPlant.species}
                     onChange={handleChange}
                     />
                 </label>
@@ -78,7 +71,7 @@ function AddPlant(props) {
                     Frequency:
                     <select
                         name="frequency"
-                        value={form.frequency}
+                        value={editPlant.frequency}
                         onChange={handleChange}  
                     >
                         <option value="daily">Daily</option>
@@ -87,10 +80,10 @@ function AddPlant(props) {
                         <option value="monthly">Monthly</option>
                     </select>
                 </label>
-                <button>Add Plant</button>
+                <button>Save Changes</button>
             </form>
         </div>
     )
 }
 
-export default AddPlant
+export default EditPlants
