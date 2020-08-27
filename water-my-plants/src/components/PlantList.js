@@ -1,42 +1,31 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
-import Card from '@material-ui/core/Card'
-import { makeStyles } from '@material-ui/core/styles'
-import { Link } from 'react-router-dom'
+import { Link, Route, useHistory } from 'react-router-dom'
 import PlantCard from './PlantCard'
-import AddPlant from './AddPlant'
+import EditPlants from './EditPlants'
 
-const useStyles = makeStyles({
-    root: {
-      minWidth: 275,
-      maxWidth: 300,
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
-    },
-    title: {
-      fontSize: 14,
-    },
-    pos: {
-      marginBottom: 12,
-    },
-  });
 
 
 function PlantList({ plantList }) {
-    const classes = useStyles();
+    const history = useHistory()
  
-    console.log(plantList)
+    // console.log(plantList)
     return (
-        <Card className={classes.root}>
+        <div className="dashboard" >
            {plantList.map(plant => (
-            <PlantCard key={plant.plantid}
-                plant={plant}
-            />
-           ))} 
-        </Card>
+               <div className="link-card" key={plant.plantid} onClick={() => history.push( `/dashboard/plant/${plant.plantid}`)}  >
+                    <PlantCard
+                    plantid={plant.plantid}
+                />
+                {/* <Link to={`/dashboard/plant/${plant.plantid}/edit`} className="plant-button">
+                    <EditPlants />
+                </Link > */}
+                {/* <Route path="/dashboard/plant/:plantid/edit">
+                    <EditPlants />
+                </Route> */}
+               </div>
+                ))} 
+               
+        </div>
     )
 }
 

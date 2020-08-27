@@ -20,22 +20,4 @@ export const plantListActions = () => (dispatch) => {
 
 }
 
-// export const FETCH_PLANT_BY_ID = 'FETCH_PLANT_BY_ID'
-// export const FETCH_PLANT_BY_ID_SUCCESS = 'FETCH_PLANT_BY_ID_SUCCESS'
-// export const FETCH_PLANT_BY_ID_FAILURE = 'FETCH_PLANT_BY_ID_FAILURE'
-
-// export const plantsActions = (id) => (dispatch) => {
-//     dispatch({ type: FETCH_PLANT_BY_ID })
-//         axiosWithAuth()
-//             .get(`plants/plant/${id}`)
-//             .then(res=> {
-//                 console.log(res)
-//                 dispatch({type: FETCH_PLANT_BY_ID_SUCCESS, payload:res.data})
-//             })
-//             .catch(err => {
-//                 console.log(err)
-//                 dispatch({type: FETCH_PLANT_BY_ID_FAILURE, payload: err.message})
-//             })
-// }
-
 
