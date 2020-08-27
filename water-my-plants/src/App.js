@@ -111,7 +111,7 @@ function App() {
             errors={formErrors}
             />
           </Route>
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
         </Switch>
       </div>
     </Router>

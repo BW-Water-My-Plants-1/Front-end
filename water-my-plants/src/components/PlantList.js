@@ -1,18 +1,44 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
+import Card from '@material-ui/core/Card'
+import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import PlantCard from './PlantCard'
+import AddPlant from './AddPlant'
 
-function PlantList({plants}) {
-    console.log(plants)
+const useStyles = makeStyles({
+    root: {
+      minWidth: 275,
+      maxWidth: 300,
+    },
+    bullet: {
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)',
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
+  });
+
+
+function PlantList({ plantList }) {
+    const classes = useStyles();
+ 
+    console.log(plantList)
     return (
-        <div className="plant-list">
-           {plants.map(plant => {
-            //    <Link key={plant.id} to={`plants/plant/${plant.id}`}>
-                // <PlantCard plant={plant}/>
-            //    </Link>
-           })} 
-        </div>
+        <Card className={classes.root}>
+           {plantList.map(plant => (
+            <PlantCard key={plant.plantid}
+                plant={plant}
+            />
+           ))} 
+        </Card>
     )
 }
+
 
 export default PlantList
